@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>noLogin</title>
+</head>
+<body>
+<p><input type="button" id="login" value="登录"></input></p>
+<p><input type="button" id="logout" value="注销"></p>
+
+</body>
+</html>
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script>
+    $(function(){
+        $("#login").click(function () {
+            $.ajax({
+                url:"http://127.0.0.1:8080/sso-center-loginAction",
+                method:"post",
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        });
+        $("#logout").click(function () {
+            $.ajax({
+                url:"http://127.0.0.1:8080/sso-center-logoutAction",
+                method:"post",
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        });
+    });
+</script>
